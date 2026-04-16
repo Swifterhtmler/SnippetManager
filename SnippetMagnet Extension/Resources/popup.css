@@ -1,0 +1,34 @@
+:root {
+    color-scheme: light dark;
+}
+
+body {
+    width: 200px;
+    height: auto;
+    margin-bottom: 3px
+    padding: 9px;
+    font-family: system-ui;
+    text-align: center;
+}
+
+#maincontainer {
+    background-color: var(--bg-color, #fff);
+    color: var(--text-color, #000);
+    border: 1px solid var(--border-color, #ccc);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+    /* Dark Mode styles go here. */
+}
+
+#textbox {
+    margin-top: 6px
+    color: fff;
+}
+
+
