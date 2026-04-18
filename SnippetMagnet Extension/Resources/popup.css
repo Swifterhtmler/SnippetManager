@@ -28,13 +28,25 @@ body {
 
 #textbox {
     margin-top: 6px
-    color: fff;
 }
 
-#listelements {
+
+ul {
+    list-style-type: none;
+    padding: 0%;
+    margin: 0;
+    /* text-align: center; */
+
+
+
+}
+
+#ListDiv {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 100%;
     justify-content: center;
     text-align: center;
+    align-items: center;
+    border: black dotted 1px;
 }

@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="popup.css">
-    <script type="module" src="popup.js"></script>
+     <script type="module" src="popup.js"></script>
 </head>
 <body>
     <div id="maincontainer">
         <h3>Snippetmanager</h3>
         
         <input type="text" id="codebox" placeholder="name for your snippet" autofocus>
-        
-        <br>
-            <textarea style="display: none;" id="textbox" class="textbox" placeholder="enter your code snippet here" ></textarea>
+            
+            <textarea style="display: none;" id="textbox" placeholder="enter your code snippet here"></textarea>
+            
+            <br>
+            <button type="button" class="listbutton" id="listactivation">View your snippets</button>
+            
+            <div  id="ListDiv">
+                <ul style="display: none;" id="listelements">
+                  <div id="elements"></div>
+                </ul>
+            </div>
+            
     </div>
-    
 </body>
 </html>
-
 
