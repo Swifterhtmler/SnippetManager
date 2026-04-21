@@ -50,7 +50,21 @@ function Snippet(name,code) {
  });
 
 
+// test function for local testing
 
+function test() {
+      codeNames.forEach(function(element) {
+      console.log("forEach running")
+      var name = document.createElement('div');
+      var code = document.createElement('div');
+
+      name.innerHTML = element.name;
+      code.innerHTML = element.code;
+
+      listElementList.appendChild(name);
+      listElementList.appendChild(code);
+      });
+}
 
 
 
