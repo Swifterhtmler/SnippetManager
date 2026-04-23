@@ -1,119 +1,124 @@
 
- let map = new Map();
+   let map = new Map();
 
- let visibility = false;
+   let visibility = false;
 
- function Snippet(name,code) {
-    this.name = name,
-    this.code = code
- }
+   function Snippet(name,code) {
+      this.name = name;
+      this.code = code;
+   }
 
-  let naming = document.getElementById('codebox');
-  let codeNames = [];
-   //  let textbox = document.getElementsByClassName('textbox');
-  let textboxtext = document.getElementById('textbox');
-
-  let listActivationButton = document.getElementById('listactivation');
+   
 
 
-  let listElementList = document.getElementById('listelements')
+    let naming = document.getElementById('codebox');
+    let codeNames = [];
+     //  let textbox = document.getElementsByClassName('textbox');
+    let textboxtext = document.getElementById('textbox');
 
-  let hasRun = false;
-
-
-  // add items to list
-
-  // hide the ui depending on state
-
-   listActivationButton.addEventListener('click', function clicked() {
-    let list = document.getElementById('listelements');
-    if (list.style.display === "none" ) {
-        list.style.display = "block";
-    } else {
-        list.style.display = "none";
-    }
-
-  });
+    let listActivationButton = document.getElementById('listactivation');
 
 
-  // add items to list
+    let listElementList = document.getElementById('listelements')
 
-  textboxtext.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-          e.preventDefault();
-          textboxtext.style.display = 'none'
-          const newSnippet = new Snippet(naming.value,textboxtext.value);
-          codeNames.push(newSnippet);
-          // console.log(codeNames);
-
-     var name = document.createElement('div');
-     var code = document.createElement('div');
-     var divUnit = document.createElement('div');
-      divUnit.className = "divUnit";
-      code.className = "code";
-      name.className = "name";
+    let hasRun = false;
 
 
-      name.innerHTML = newSnippet.name;
-      code.innerHTML = newSnippet.code;
+    // add items to list
 
-      divUnit.appendChild(name);
-      divUnit.appendChild(code);
-      listElementList.appendChild(divUnit);
+    // hide the ui depending on state
 
-         // localstorage save arrays
-        console.log(codeNames);
-        localStorage.setItem("naming", JSON.stringify(codeNames));
-   //   localStorage.setItem("newItems",JSON.stringify(newSnippet));
-      
-          naming.value = '';
-          textboxtext.value = '';
-          document.getElementById('codebox').focus();
-    
+     listActivationButton.addEventListener('click', function clicked() {
+      let list = document.getElementById('listelements');
+      if (list.style.display === "none" ) {
+          list.style.display = "block";
+      } else {
+          list.style.display = "none";
       }
 
-  })
+    });
+ 
 
+    // add items to list
 
-  naming.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-          e.preventDefault(); // Prevent form submission
-          // clear the textfield
-          document.getElementById('textbox').style.display = 'block';
-          document.getElementById('textbox').focus();
-  
-      }
-  });
+    textboxtext.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && textboxtext.value !== '') {
+            e.preventDefault();
+            textboxtext.style.display = 'none'
+            const newSnippet = new Snippet(naming.value,textboxtext.value);
+            codeNames.push(newSnippet);
+            // console.log(codeNames);
 
-  
-// onload function
-window.addEventListener("load", function () {
-       // get the list
-    var storedNames = JSON.parse(localStorage.getItem("naming"));
-       //console.log(storedNames);
-    
-  if (storedNames) {
-      codeNames = storedNames;
-       // render list when page loads
-       storedNames.forEach(function(element) {
-       console.log("forEach running")
-       var divUnit = document.createElement('div');
-       divUnit.className = "divUnit";
        var name = document.createElement('div');
        var code = document.createElement('div');
-       code.className = "code";
-       name.className = "name";
+       var divUnit = document.createElement('div');
+        divUnit.className = "divUnit";
+        code.className = "code";
+        name.className = "name";
 
 
-       name.innerHTML = element.name;
-       code.innerHTML = element.code;
+        name.innerHTML = newSnippet.name;
+        code.innerHTML = newSnippet.code;
 
-       divUnit.appendChild(name);
-       divUnit.appendChild(code);
-       listElementList.appendChild(divUnit);
-       });
-    }
+        divUnit.appendChild(name);
+        divUnit.appendChild(code);
+        listElementList.appendChild(divUnit);
+
+           // localstorage save arrays
+          console.log(codeNames);
+          localStorage.setItem("naming", JSON.stringify(codeNames));
+     //   localStorage.setItem("newItems",JSON.stringify(newSnippet));
+        
+            naming.value = '';
+            textboxtext.value = '';
+            document.getElementById('codebox').focus();
+      
+        }
+
+    })
 
 
-});
+    naming.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && naming.value !== '') {
+            e.preventDefault(); // Prevent form submission
+            // clear the textfield
+            document.getElementById('textbox').style.display = 'block';
+            document.getElementById('textbox').focus();
+    
+        }
+    });
+    
+    
+
+    
+ // onload function
+window.addEventListener("load", function () {
+         // get the list
+      var storedNames = JSON.parse(localStorage.getItem("naming"));
+         //console.log(storedNames);
+      
+    if (storedNames) {
+        codeNames = storedNames;
+         // render list when page loads
+         storedNames.forEach(function(element) {
+         console.log("forEach running")
+         var divUnit = document.createElement('div');
+         divUnit.className = "divUnit";
+         var name = document.createElement('div');
+         var code = document.createElement('div');
+         code.className = "code";
+         name.className = "name";
+
+
+         name.innerHTML = element.name;
+         code.innerHTML = element.code;
+
+         divUnit.appendChild(name);
+         divUnit.appendChild(code);
+         listElementList.appendChild(divUnit);
+         });
+      }
+
+
+ });
 
