@@ -9,9 +9,9 @@ body {
     margin-top: 6px;
     padding: 10px;
     font-family: system-ui;
-    overflow:hidden
+    overflow-x: hidden;
     text-align: center;
-   
+   overflow-y: scroll; /* affects the whole container will need to be checked on later on */
 }
 
 #maincontainer {
@@ -41,7 +41,7 @@ ul {
     margin: 0;
     /* text-align: center; */
     max-width: 300px;
-
+   overflow-y: scroll;
 
 }
 
@@ -66,12 +66,14 @@ ul {
     margin-bottom: 5px;
     border-radius: 3px;
     width: 100%;
+    overflow-y: scroll;
 }
 
 .name {
     padding: 3px;
     border-radius: 3px 3px 0px 0px;
     background-color: rgb(215, 229, 229);
+    overflow-x: hidden;
 }
 
 .code {
@@ -80,8 +82,19 @@ ul {
     background-color: #fff;
     height: auto;
     white-space: pre-wrap;
-    foreground-color: black;
+    overflow-x: hidden;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
