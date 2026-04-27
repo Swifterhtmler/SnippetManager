@@ -77,12 +77,11 @@ ul {
     overflow-x: hidden;
 }
 
-
 .code {
     padding: 5px;
     border-radius: 0px 0px 3px 3px;
     background-color: #fff;
-    height: 10px;
+    height: 20px;
     overflow-y: hidden; /* this needs to be changed */
     white-space: pre-wrap;
     overflow-x: hidden;
@@ -91,23 +90,26 @@ ul {
 }
 
 
-.code:hover {
+/* .code:hover {
     padding: 5px;
     border-radius: 0px 0px 3px 3px;
     background-color: #161616;
     height: 100px;
-    overflow-y: hidden; /* this needs to be changed */
+    overflow-y: hidden;
     white-space: pre-wrap;
     overflow-x: hidden;
     color: white;
     transition: 0.2s;
+} */
+
+
+.previewDivUnit {
+   position: relative;
+   width: 100vw;
+   left: calc(-50vw + 50%);
 }
 
 
 
-#popupbox {
-    width: 300px;
-    height: 200px;
-    border: 1px black dotted;
-    margin-top: 5px;
-}
+
+
