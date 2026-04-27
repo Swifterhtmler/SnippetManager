@@ -11,6 +11,7 @@
 
   
 
+// variables
 
    let naming = document.getElementById('codebox');
    let codeNames = [];
