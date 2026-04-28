@@ -31,7 +31,9 @@ body {
 }
 
 #textbox {
-    margin-top: 6px
+    margin-top: 6px;
+    margin-right 0px;
+    margin-left: 0px;
 }
 
 
