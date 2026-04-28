@@ -11,6 +11,7 @@ body {
     font-family: system-ui;
     overflow-x: hidden;
     text-align: center;
+    margin-left: 300px;
 }
 
 #maincontainer {
@@ -31,9 +32,7 @@ body {
 }
 
 #textbox {
-    margin-top: 6px;
-    margin-right 0px;
-    margin-left: 0px;
+    margin-top: 6px
 }
 
 
@@ -42,6 +41,7 @@ ul {
     padding: 0%;
     margin: 0;
     width: 100%;
+    /* text-align: center; */
     max-width: 300px;
    overflow-y: scroll;
 
@@ -55,6 +55,8 @@ ul {
     justify-content: center;
     text-align: center;
     align-items: center;
+  /*  border: black dotted 1px;*/
+  /*  max-width: 300px; */
 }
 
 
@@ -104,13 +106,17 @@ ul {
 
 
 .previewDivUnit {
-   position: relative;
-   width: 100vw;
-   left: calc(-50vw + 50%);
+  display: flex;
+  position: absolute;
+  background-color: #fff;
+  width: 500px;
+  border: black 1px solid;
+  overflow: visible;
+  height: fit-content;
+  align-self: center;
+  border-radius: 10px;
+  
 }
-
-
-
 
 
 
