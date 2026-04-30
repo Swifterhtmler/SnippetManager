@@ -1,5 +1,6 @@
   
 
+
    let map = new Map();
 
    let visibility = false;
@@ -57,6 +58,7 @@
        var code = document.createElement('div');
        var divUnit = document.createElement('div');
        var previewDivUnit = document.createElement('div');
+       var previewCopyButton = document.createElement('button');
        var copybutton = document.createElement('button');
 
 
@@ -64,18 +66,22 @@
         code.className = "code";
         name.className = "name";
 
-     
-
         copybutton.className = "copybutton";
+    //    copyButton.alt = "copybutton";
         copybutton.textContent = "copy text";
       
         name.textContent = newSnippet.name;
         code.textContent = newSnippet.code;
-
         // initialize preview windows
         previewDivUnit.className = "previewDivUnit";
         previewDivUnit.textContent = code.textContent;
         previewDivUnit.style.display = "none";
+
+        // add logo/icon to button
+
+        previewCopyButton.innerHTML = "<img src='copyicon.png' alt='copy' width='25' height='25'>";
+
+        previewDivUnit.appendChild(previewCopyButton);
 
         divUnit.appendChild(name);
         divUnit.appendChild(code);
@@ -90,6 +96,12 @@
      // copybutton
 
        copybutton.addEventListener('click', function() {
+              var copyingTextcontent = code.textContent;
+              navigator.clipboard.writeText(copyingTextcontent);
+              console.log("copied",copyingTextcontent);
+       });
+
+      previewCopyButton.addEventListener('click', function() {
               var copyingTextcontent = code.textContent;
               navigator.clipboard.writeText(copyingTextcontent);
               console.log("copied",copyingTextcontent);
@@ -169,6 +181,7 @@ window.addEventListener("load", function () {
          divUnit.className = "divUnit";
          var copybutton = document.createElement('button');
          var previewDivUnit = document.createElement('div');
+         var previewCopyButton = document.createElement('button');
          var name = document.createElement('div');
          var code = document.createElement('div');
          code.className = "code";
@@ -177,6 +190,7 @@ window.addEventListener("load", function () {
          copybutton.className = "copybutton";
          copybutton.textContent = "copy text";
 
+         
 
          name.textContent = element.name;
          code.textContent = element.code;
@@ -185,14 +199,32 @@ window.addEventListener("load", function () {
          previewDivUnit.style.display = "none";
 
 
+
+        previewCopyButton.innerHTML = "<img src='copyicon.png' alt='copy' width='22' height='22'>";
+
+        previewCopyButton.className = "previewCopyButton";
+
+        previewDivUnit.appendChild(previewCopyButton);
+
+
+        previewCopyButton.className = "previewCopyButton";
+
          divUnit.appendChild(name);
          divUnit.appendChild(code);
          divUnit.appendChild(previewDivUnit);
          divUnit.appendChild(copybutton);
          listElementList.appendChild(divUnit);
+       // copybutton for copying preview text;
+
+       copybutton.addEventListener('click', function() {
+              var copyingTextcontent = code.textContent;
+              navigator.clipboard.writeText(copyingTextcontent);
+              console.log("copied",copyingTextcontent);
+       });
+
 
         // copy function do not touch this !!
-        copybutton.addEventListener('click', function() {
+        previewCopyButton.addEventListener('click', function() {
               var copyingTextcontent = code.textContent;
               navigator.clipboard.writeText(copyingTextcontent);
               console.log("copied",copyingTextcontent);
@@ -233,5 +265,3 @@ window.addEventListener("load", function () {
       }
 
  });
-
- 
