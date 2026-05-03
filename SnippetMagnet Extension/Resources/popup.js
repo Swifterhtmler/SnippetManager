@@ -26,7 +26,6 @@
 
      let copyButton = document.getElementById("copybutton");
 
-     // add items to list
 
      // hide the ui depending on state
 
@@ -50,7 +49,6 @@
              textboxtext.style.display = 'none'
              const newSnippet = new Snippet(naming.value,textboxtext.value);
              codeNames.push(newSnippet);
-             // console.log(codeNames);
 
       try {
         var name = document.createElement('div');
