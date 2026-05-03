@@ -1,4 +1,5 @@
   
+
     let map = new Map();
 
     let visibility = false;
@@ -114,6 +115,29 @@
                console.log("copied",copyingTextcontent);
         });
 
+        // remove new elements after creatinon if user wnats to do so
+
+        divUnit.addEventListener('dblclick', function () {
+           divUnit.parentNode.removeChild(divUnit);
+           // this returns the name textcontents of the specific div the mousecliks on no need to index the full dom
+           searchableIndexTextArray = name.textContent;
+
+            // let index = codeNames.findIndex(i => i.name === searchableIndexTextArray);
+           var storedNames = JSON.parse(localStorage.getItem("naming"));
+           console.log(storedNames);
+           let indexAnother = storedNames.findIndex(i => i.name === searchableIndexTextArray)
+           console.log("new index of array",indexAnother);
+ 
+           // removes the element of which index is taken using findIndex above
+           storedNames.splice(indexAnother,1);
+           // console.log(storedNames);
+           codeNames = storedNames;
+           localStorage.setItem("naming", JSON.stringify(codeNames));
+            // overwrites array and replaces it
+
+           // localStorage.removeItem('naming',JSON.stringify(codeNames[indexAnother]));
+       });
+      
 
        code.addEventListener("click", function () {
            try {
@@ -141,6 +165,7 @@
                console.log(e.message)
            }
           });
+
 
             // localstorage save arrays
            console.log(codeNames);
@@ -196,6 +221,7 @@
 
           copybutton.className = "copybutton";
           copybutton.textContent = "Copy Snippet";
+          divUnit.className = "divUnit"
 
           name.textContent = element.name;
           code.textContent = element.code;
@@ -221,6 +247,31 @@
                navigator.clipboard.writeText(copyingTextcontent);
                console.log("copied",copyingTextcontent);
         });
+
+
+        // remove item
+
+          divUnit.addEventListener('dblclick', function () {
+           divUnit.parentNode.removeChild(divUnit);
+           // this returns the name textcontents of the specific div the mousecliks on no need to index the full dom
+           searchableIndexTextArray = name.textContent;
+
+            // let index = codeNames.findIndex(i => i.name === searchableIndexTextArray);
+           var storedNames = JSON.parse(localStorage.getItem("naming"));
+           console.log(storedNames);
+           let indexAnother = storedNames.findIndex(i => i.name === searchableIndexTextArray)
+           console.log("new index of array",indexAnother);
+ 
+           // removes the element of which index is taken using findIndex above
+           storedNames.splice(indexAnother,1);
+           // console.log(storedNames);
+           codeNames = storedNames;
+           localStorage.setItem("naming", JSON.stringify(codeNames));
+            // overwrites array and replaces it
+
+           // localStorage.removeItem('naming',JSON.stringify(codeNames[indexAnother]));
+       });
+
 
 
          // copy function do not touch this !!
