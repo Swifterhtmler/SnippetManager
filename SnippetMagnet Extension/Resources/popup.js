@@ -186,6 +186,8 @@ try {
      let nameValue = naming.value;
      console.log("name value is:", nameValue);
      let subgroup = nameValue.substring(nameValue.indexOf('#')+1);
+      // add new hastag and group logic here
+     let subsubgroup = subgroup.substring(0, subgroup.indexOf(' '));
      let group = subgroup.substring(0, subgroup.indexOf(' '));
      console.log("group is:", group);
      groups.push(group);
