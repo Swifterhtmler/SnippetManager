@@ -26,6 +26,7 @@ body {
     margin-left: 110px;
 }
 
+
 #maincontainer {
     background-color: var(--dark);
     color: var(--text-color, #000);
@@ -45,8 +46,31 @@ body {
 }
 
 #textbox {
-    margin-top: 6px
+   background-color: var(--dark);
+    color: #e0e0e0;
+    border: 1px solid var(--wild-color);
+    border-radius: 5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 5px;
+    margin-top: 8px;
+    margin-right: 5px;
+    margin-left: 5px;
 }
+
+
+#textbox:focus {
+   background-color: var(--dark);
+    outline: var(--highlight);
+    color: #e0e0e0;
+    border: 1px solid var(--highlight);
+    border-radius: 5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 5px;
+    margin-top: 8px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
 
 
 ul {
@@ -54,7 +78,6 @@ ul {
     padding: 0%;
     margin: 0;
     width: 100%;
-    /* text-align: center; */
     max-width: 300px;
    overflow-y: scroll;
 
@@ -68,16 +91,14 @@ ul {
     justify-content: center;
     text-align: center;
     align-items: center;
-  /*  border: black dotted 1px;*/
-  /*  max-width: 300px; */
 }
 
 
 .divUnit {
     display: flex;
     flex-direction: column;
-    background-color: var(--less-dark);
-    border: 2px solid var(--highlight);
+    background-color: var(--dark);
+    border: 2px solid var(--wild-color);
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 10px;
@@ -88,15 +109,17 @@ ul {
 .name {
     padding: 3px;
     border-radius: 5px 5px 0px 0px;
-    background-color: var(--highlight);
+    background-color: rgb(5, 40, 63);
     overflow-x: hidden;
-    
+    color: var(--wild-color);
 }
+
+
 
 .code {
     padding: 5px;
     border-radius: 0px 0px 3px 3px;
-    background-color: var(--less-dark);
+    background-color: var(--dark);
     height: 20px;
     overflow-y: hidden; /* this needs to be changed */
     white-space: pre-wrap;
@@ -105,18 +128,6 @@ ul {
     transition: 0.3s;
 }
 
-
-/* .code:hover {
-    padding: 5px;
-    border-radius: 0px 0px 3px 3px;
-    background-color: #161616;
-    height: 100px;
-    overflow-y: hidden;
-    white-space: pre-wrap;
-    overflow-x: hidden;
-    color: white;
-    transition: 0.2s;
-} */
 
 
 .previewDivUnit {
@@ -245,5 +256,3 @@ ul {
     margin-right: 5px;
     margin-left: 5px;
 }
-
-
