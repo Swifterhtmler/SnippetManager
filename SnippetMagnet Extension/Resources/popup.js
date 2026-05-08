@@ -195,21 +195,6 @@ try {
      localStorage.setItem("groups",JSON.stringify(groups));
   }
 
-      if (naming.value.includes("#")) {
-              let nameValue = naming.value;
-              console.log("name value is:", nameValue);
-              let group = nameValue.substring(nameValue.indexOf('#') + 1);
-
-
-              function getGroup(nameValue) {
-                    let words = nameValue.split(' ');
-                    if (words.includes('#')) {
-                       for (let i = 0; i < words.length; i++) {
-                          
-                       }
-                    }
-              }
-      
       
       // clear the textfield
       document.getElementById('textbox').style.display = 'block';

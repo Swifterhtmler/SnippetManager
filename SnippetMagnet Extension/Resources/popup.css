@@ -24,6 +24,7 @@ body {
     text-align: center;
     margin-right: 110px;
     margin-left: 110px;
+    scrollbar-width: none;
 }
 
 
@@ -39,6 +40,7 @@ body {
     justify-content: center;
     text-align: center;
     overflow-y: scroll;  /* affects the whole container will need to be checked on later on */
+    scrollbar-width: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -80,6 +82,7 @@ ul {
     width: 100%;
     max-width: 300px;
    overflow-y: scroll;
+   scrollbar-width: none;
 
 }
 
@@ -104,6 +107,7 @@ ul {
     border-radius: 10px;
     width: 98%;
     overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .name {
