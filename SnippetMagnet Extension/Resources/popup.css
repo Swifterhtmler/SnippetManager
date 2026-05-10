@@ -128,7 +128,7 @@ ul {
     overflow-y: hidden; /* this needs to be changed */
     white-space: pre-wrap;
     overflow-x: hidden;
-    color: var(--less-dark);
+    color: rgb(50,100,50);
     transition: 0.3s;
 }
 
