@@ -5,52 +5,51 @@
 //  Created by Riku Kuisma on 13.4.2026.
 //
 
-import Cocoa
-import SafariServices
-import WebKit
 
-let extensionBundleIdentifier = "snippetmagnet.SnippetMagnet.Extension"
+import AppKit
+import WebKit
+import SafariServices
 
 class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
+    var webView: WKWebView!
 
-    @IBOutlet var webView: WKWebView!
+    override func loadView() {
+        let config = WKWebViewConfiguration()
+        config.userContentController.add(self, name: "controller")
+        webView = WKWebView(frame: NSRect(x: 0, y: 0, width: 720, height: 560), configuration: config)
+        webView.navigationDelegate = self// remove this after testing
+        self.view = webView
+        print("loadView called")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.webView.navigationDelegate = self
-
-        self.webView.configuration.userContentController.add(self, name: "controller")
-
-        self.webView.loadFileURL(Bundle.main.url(forResource: "Main", withExtension: "html")!, allowingReadAccessTo: Bundle.main.resourceURL!)
+        print("trying to load html")
+        guard let url = Bundle.main.url(forResource: "Main", withExtension: "html") else {
+            print("ERROR: Main.html not found in bundle — showing fallback view")
+            // Fallback: show a solid red background so we can see the window is present
+            let fallback = NSView(frame: self.view.bounds)
+            fallback.autoresizingMask = [.width, .height]
+            fallback.wantsLayer = true
+            fallback.layer?.backgroundColor = NSColor.systemRed.cgColor
+            self.view = fallback
+            return
+        }
+        webView.loadFileURL(url, allowingReadAccessTo: Bundle.main.resourceURL!)
+        print("Requested load of Main.html at: \(url.path)")
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: extensionBundleIdentifier) { (state, error) in
-            guard let state = state, error == nil else {
-                return
-            }
-
-            DispatchQueue.main.async {
-                if #available(macOS 13, *) {
-                    webView.evaluateJavaScript("show(\(state.isEnabled), true)")
-                } else {
-                    webView.evaluateJavaScript("show(\(state.isEnabled), false)")
-                }
-            }
-        }
+        print("test")
     }
 
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if (message.body as! String != "open-preferences") {
-            return;
-        }
-
-        SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
-            DispatchQueue.main.async {
-                NSApplication.shared.terminate(nil)
-            }
-        }
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        print("Navigation failed: \(error.localizedDescription)")
     }
 
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        print("Provisional navigation failed: \(error.localizedDescription)")
+    }
+
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {}
 }

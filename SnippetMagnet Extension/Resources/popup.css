@@ -31,7 +31,7 @@ body {
 #maincontainer {
     background-color: var(--dark);
     color: var(--text-color, #000);
-    border: 1px solid var(--border-color, #ccc);
+    border: 1px solid var(--border-color, #c cc);
     padding: 10px;
     width: 300px;
     display: flex;
